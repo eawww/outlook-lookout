@@ -1,11 +1,15 @@
-#Outlook Lookout
+# Outlook Lookout
+
 *Fragile Attempt at coercing outlook.office365.com to push desktop notifications*
+
 🚧 Work in Progress
 
 ## ...Why?
 On Macintosh computers, Microsoft Outlook's desktop application is an untamable beast of a thing. It spontaneously decides to devour system resources, it keeps restarting itself in weird new ways, and the majority of the people around me don't seem to notice or care. Microsoft Outlook for Mac is basically the gremlin from that episode of The Twilight Zone.
 
-Conversely, the Outlook web app (not OWA) is reasonably delightful if you're already roped into the 365 ecosystem. The biggest drawback, however, is that it just doesn't want to send desktop notifications. Maybe we can change that! Let's be William Shatner popping the emergency exit hatch and lunging from the fuselage with a handgun to *kill that gremlin.*
+![Gremlin gif](http://i.imgur.com/1Go44lF.gif)
+
+Conversely, the Outlook web app (not OWA) is reasonably delightful if you're already roped into the 365 ecosystem. The biggest drawback, however, is that it just doesn't want to send desktop notifications. Maybe we can change that! Let's be **[Spoiler]**  William Shatner popping the emergency exit hatch and lunging from the fuselage with a handgun and *kill that gremlin.*
 
 ## Usage
 The plan is to make this into a browser extension that can also be injected into a [nativefier](https://github.com/jiahaog/nativefier) electron app for @ajlende, but in this early stage, I'm just copying `main.js` into the browser console like a weirdo.
