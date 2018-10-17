@@ -15,9 +15,9 @@ Conversely, the Outlook web app (not OWA) is reasonably delightful if you're alr
 The plan is to make this into a browser extension that can also be injected into a [nativefier](https://github.com/jiahaog/nativefier) electron app for @ajlende, but in this early stage, I'm just copying `main.js` into the browser console like a weirdo.
 1. Copy contents of `main.js` into the browser console.
 1. Wait for a reminder notification to come up in Outlook
-  * Alternatively, you can take some initiative and make a fake appointment 1 minute from now.
+    * Alternatively, you can take some initiative and make a fake appointment 1 minute from now.
 1. Behold. Some strings that will eventually make their way into the notification are printed to the console before your very eyes.
-  * Unless something broke. That's really possible.
+    * Unless something broke. That's really possible.
 
 ##Changelog
 * **2018-10-16** *Blazing the trail*
