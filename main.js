@@ -1,13 +1,13 @@
 const NOTIF_PARENT_CLASS = 'o365cs-notifications-notificationPopupArea';
-const REMINDER_CLASS = 'o365cs-notifications-reminders-flexpaneitem';
 
 const getFirstElementWithClass = (className, parentElement) => {
   const elements = parentElement.getElementsByClassName(className);
   return elements[0] || null; // maybe return generic node?
 }
 
-// REMINDERS
-// Each one has (nested way down in):
+// REMINDERS //
+const REMINDER_CLASS = 'o365cs-notifications-reminders-flexpaneitem';
+
 const reminderClassNames = {
   title: 'o365cs-notifications-reminders-title',
   timeToStartValue: 'o365cs-notifications-toastReminders-timeToStartValue',
@@ -33,6 +33,29 @@ const parseReminder = (reminder) => {
   console.log(reminderProperties);
 }
 
+// NEW MAIL? //
+const NEW_MAIL_CLASS = `o365cs-notifications-newMailPopupButtonContent`
+
+const newMailSelectors = {
+  image: `img.o365cs-notifications-newMailPersonaImage`, // src
+  initials: `div.o365cs-notifications-newMailPersonaImage`, //innerText
+  from: `span.o365cs-notifications-text.o365cs-segoeRegular`, //innerText
+  subject: `span.o365cs-notifications-text.o365cs-segoeSemiBold.ms-fcl-tp`, //innerText
+  preview: `span.o365cs-notifications-text.o365cs-notifications-bodypreviewtext`, //innerText
+}
+
+const parseNewMail = (newmail) {
+  const newMailProperties = {
+    image: newMail.querySelector(newMailSelectors.image).src || '',
+    initials: newMail.querySelector(newMailSelectors.initials).innerText || '',
+    from: newMail.querySelector(newMailSelectors.from).innerText || '',
+    subject: newMail.querySelector(newMailSelectors.subject).innerText || '',
+    preview: newMail.querySelector(newMailSelectors.preview).innerText || '',
+  }
+  console.log('New Mail Parsed!')
+  console.log(newMailProperties);
+}
+
 
 // GENERAL MUTATION OBSERVIN'
 // I watched you chaaaaaaaaange...
@@ -40,6 +63,8 @@ const parseMutationRecord = (mutation) => {
   Array.from(mutation.addedNodes).map(addedNode => {
     if (addedNode.classList.contains(REMINDER_CLASS)){
       parseReminder(addedNode);
+    } else if (addedNode.querySelector(NEW_MAIL_CLASS)) {
+      parseNewMail(addedNode);
     }
     // add more stuff as we support more notification types
   })
